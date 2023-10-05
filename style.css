@@ -1,0 +1,181 @@
+@font-face {
+    font-family: bbbbb;
+    src: url('./asset/font/04B_30__.woff') format('woff');
+}
+@font-face {
+    font-family: kart;
+    src: url('./asset/font/Mario-Kart-DS.woff') format('woff');
+}
+@font-face {
+    font-family: mincr;
+    src: url('./asset/font/Minecraftia-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: monst;
+    src: url('./asset/font/MonsterFriendFore.woff') format('woff');
+}
+        
+
+* {
+    margin: 0;
+    padding: 0;
+}
+#rank-page {
+    text-decoration: none;
+    color: black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+html,
+body {
+    background-color: black;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+main {
+    display: flex;
+    width: calc(100%-20px);
+    flex-direction: column;
+    align-items: center;
+}
+.top-wrap {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+}
+.top-wrap img{
+    height: 1rem;
+    margin-top: 0.5rem;
+}
+.top-wrap .title {
+    margin-left: 10px;
+}
+.top-wrap .vcd {
+    text-align: center;
+}
+.top-wrap .date {
+    margin-right: 10px;
+}
+
+
+.score-wrap {
+    margin: 100px 0;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#game-name{
+    margin: 40px 0;
+    text-align: center;
+    font-family: kart;
+    color: #ffff00;
+    font-size: 3rem;
+}
+#hightscore {
+    width: 50vw;
+}
+
+.text-wrap {
+    width: 60%;
+}
+.player {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 3fr;
+    font-family: mincr;
+    font-size: 1.4rem;
+}
+#score, #name {
+    text-align: right;
+}
+.text-wrap > div:nth-child(1)::before{
+    content: "1st ";
+}
+.text-wrap > div:nth-child(2)::before{
+    content: "2nd ";
+}
+.text-wrap > div:nth-child(3)::before{
+    content: "3rd ";
+}
+.text-wrap > div:nth-child(3){
+    margin-bottom: 4rem;
+}
+
+.text-wrap > div:nth-child(4)::before{
+    content: "4th ";
+}
+.text-wrap > div:nth-child(5)::before{
+    content: "5th ";
+}
+.text-wrap > div:nth-child(6)::before{
+    content: "6th ";
+}
+.text-wrap > div:nth-child(7)::before{
+    content: "7th ";
+}
+.text-wrap > div:nth-child(8)::before{
+    content: "8th ";
+}
+.text-wrap > div:nth-child(9)::before{
+    content: "9th ";
+}
+.text-wrap > div:nth-child(10)::before{
+    content: "10th ";
+}
+
+.text-wrap > div:not(:nth-child(-n+10)){
+    display: none;
+}
+
+#rank-board {
+    width: 100vw;
+}
+#rank-board #hightscore {
+    margin-bottom: 5rem;
+}
+.ranking-wrap {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.ranking-wrap #game-name {
+    font-size: 6rem;
+    width: 100%;
+}
+.rank-player {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 2fr 1fr;
+    text-align: center;
+}
+.rank-player #score{
+    text-align: center;
+    grid-column: 1 /3;
+    font-family: bbbbb;
+    font-size: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.rank-player #name{
+    text-align: right;
+    font-size: 1.5rem;
+}
+.rank-player #group{
+    text-align: right;
+    font-size: 1.5rem;
+}
+.rank-player p {
+    font-family: monst;
+}
