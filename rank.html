@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kmu night</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- <script type="module">
+    <script type="module">
       import { firebaseApp } from "./firebase-config.js";
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
@@ -49,46 +49,30 @@
       function onDataChange(snapshot) {
         const data = snapshot.val();
         justdance = gameScore(data, "justdance");
-        // dataArray 배열에 있는 각각의 플레이어 데이터를 표시
-        while (rankPlayer) {
-            rankPlayer.removeChild(rankPlayer);
-        }
-        const playerElement = createPlayerElement(playerData); // 플레이어 데이터를 포함하는 요소 생성
-        rankPlayer.appendChild(playerElement); // 요소를 text-wrap에 추가
-        console.log(justdance);
+        updateRankPlayer();
       }
 
       // 데이터 변경을 감지하고 onDataChange 함수를 등록
       onValue(dataRef, onDataChange, { onlyOnce: false });
+// .rank-player 요소의 참조 가져오기
+const rankPlayerElement = document.querySelector('.rank-player');
 
-      function createPlayerElement(playerData) {
-        // 플레이어 데이터를 표시할 div 요소 생성
-        const playerDiv = document.createElement("div");
-        playerDiv.className = "rank-player";
-
-        // 그룹, 이름, 점수 데이터를 표시하는 각각의 p 요소 생성
-        const groupP = document.createElement("p");
-        groupP.id = "group";
-        groupP.textContent = playerData.group; // 그룹 데이터
-
-        const nameP = document.createElement("p");
-        nameP.id = "name";
-        nameP.textContent = playerData.name; // 이름 데이터
-
-        const scoreP = document.createElement("p");
-        scoreP.id = "score";
-        scoreP.textContent = playerData.score; // 점수 데이터
-
-        // 생성한 p 요소들을 playerDiv에 추가
-        playerDiv.appendChild(groupP);
-        playerDiv.appendChild(nameP);
-        playerDiv.appendChild(scoreP);
-
-        return playerDiv;
-      }
-      const textWrap = document.querySelector(".text-wrap"); // text-wrap 요소 선택
-      const rankPlayer = document.querySelector(".rank-player"); // text-wrap 요소 선택
-    </script> -->
+// justdance 배열이 비어있지 않은 경우
+  
+  // .rank-player 요소 업데이트 함수
+  function updateRankPlayer() {
+    const rankPlayerElement = document.querySelector('.rank-player');
+      const firstPlayer = justdance[0];
+      const scoreElement = rankPlayerElement.querySelector('#score');
+      const groupElement = rankPlayerElement.querySelector('#group');
+      const nameElement = rankPlayerElement.querySelector('#name');
+  
+      scoreElement.textContent = firstPlayer.score;
+      groupElement.textContent = firstPlayer.group;
+      nameElement.textContent = firstPlayer.name;
+  }
+  
+    </script>
   </head>
   <body>
     <a id="rank-page" href="./index.html">index</a>
@@ -103,9 +87,9 @@
         <div class="ranking-wrap">
           <h1 id="game-name">JUST DANCE</h1>
           <div class="rank-player">
-            <p id="score">99120050</p>
-            <p id="group">vcd</p>
-            <p id="name">yuhwanjun</p>
+            <p id="score"></p>
+            <p id="group"></p>
+            <p id="name"></p>
           </div>
         </div>
       </div>
