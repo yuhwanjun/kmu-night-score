@@ -86,12 +86,12 @@ main {
 }
 
 .text-wrap {
-    width: 60%;
+    width: 70%;
 }
 .player {
     width: 100%;
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 3fr;
+    grid-template-columns: 2fr 3fr 3fr 2fr;
     font-family: mincr;
     font-size: 1.4rem;
     /* display: none; 초기에 숨김 처리 */
