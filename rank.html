@@ -1,46 +1,114 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kmu night</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script type="module">
+      import { firebaseApp } from "./firebase-config.js";
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+
+      // Firebase Realtime Database 참조 가져오기
+      const database = getDatabase(firebaseApp);
+
+      const dataRef = ref(database, "player");
+
+      function objectToArray(data) {
+        const dataArray = [];
+        // 객체의 각 속성을 순회하며 배열에 추가
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            const playerData = data[key];
+            // 플레이어 데이터에 고유한 식별자를 추가하거나 원하는 형식으로 변환 가능
+            // 예시: playerData.id = key;
+            dataArray.push(playerData);
+          }
+        }
+        return dataArray;
+      }
+      function gameScore(data, targetGame) {
+        const filteredData = Object.values(data).filter(
+          (player) => player.game === targetGame
+        );
+        filteredData.sort((a, b) => b.score - a.score);
+
+        return filteredData;
+      }
+
+      let justdance;
+
+      function onDataChange(snapshot) {
+        const data = snapshot.val();
+        justdance = gameScore(data, "justdance");
+        // dataArray 배열에 있는 각각의 플레이어 데이터를 표시
+        while (rankPlayer) {
+            rankPlayer.removeChild(rankPlayer);
+        }
+        const playerElement = createPlayerElement(playerData); // 플레이어 데이터를 포함하는 요소 생성
+        rankPlayer.appendChild(playerElement); // 요소를 text-wrap에 추가
+        console.log(justdance);
+      }
+
+      // 데이터 변경을 감지하고 onDataChange 함수를 등록
+      onValue(dataRef, onDataChange, { onlyOnce: false });
+
+      function createPlayerElement(playerData) {
+        // 플레이어 데이터를 표시할 div 요소 생성
+        const playerDiv = document.createElement("div");
+        playerDiv.className = "rank-player";
+
+        // 그룹, 이름, 점수 데이터를 표시하는 각각의 p 요소 생성
+        const groupP = document.createElement("p");
+        groupP.id = "group";
+        groupP.textContent = playerData.group; // 그룹 데이터
+
+        const nameP = document.createElement("p");
+        nameP.id = "name";
+        nameP.textContent = playerData.name; // 이름 데이터
+
+        const scoreP = document.createElement("p");
+        scoreP.id = "score";
+        scoreP.textContent = playerData.score; // 점수 데이터
+
+        // 생성한 p 요소들을 playerDiv에 추가
+        playerDiv.appendChild(groupP);
+        playerDiv.appendChild(nameP);
+        playerDiv.appendChild(scoreP);
+
+        return playerDiv;
+      }
+      const textWrap = document.querySelector(".text-wrap"); // text-wrap 요소 선택
+      const rankPlayer = document.querySelector(".rank-player"); // text-wrap 요소 선택
+    </script> -->
+  </head>
+  <body>
     <a id="rank-page" href="./index.html">index</a>
     <main>
-        <div class="top-wrap">
-            <img class="title" src="./asset/SVG/night.svg" alt="">
-            <img class="vcd" src="./asset/SVG/viscomm.svg" alt="">
-            <img class="date" src="./asset/SVG/date.svg" alt="">
+      <div class="top-wrap">
+        <img class="title" src="./asset/SVG/night.svg" alt="" />
+        <img class="vcd" src="./asset/SVG/viscomm.svg" alt="" />
+        <img class="date" src="./asset/SVG/date.svg" alt="" />
+      </div>
+      <div id="rank-board" class="score-wrap">
+        <img id="hightscore" src="./asset/SVG/ranking.svg" alt="hight score" />
+        <div class="ranking-wrap">
+          <h1 id="game-name">JUST DANCE</h1>
+          <div class="rank-player">
+            <p id="score">99120050</p>
+            <p id="group">vcd</p>
+            <p id="name">yuhwanjun</p>
+          </div>
         </div>
-        <div id="rank-board" class="score-wrap">
-            <img id="hightscore" src="./asset/SVG/ranking.svg" alt="hight score">
-            <div class="ranking-wrap">
-                <h1 id="game-name">JUST DANCE</h1>
-                <div class="rank-player">
-                    <p id="score">99120050</p>
-                    <p id="group">vcd</p>   
-                    <p id="name">yuhwanjun</p>
-                </div>
-            </div>
-            <div class="ranking-wrap">
-                <h1 id="game-name">TETRIS</h1>
-                <div class="rank-player">
-                    <p id="score">00422450</p>
-                    <p id="group">vcd</p>   
-                    <p id="name">sobin</p>
-                </div>
-            </div>
-            <div class="ranking-wrap">
-                <h1 id="game-name">GOGUNBUNTU</h1>
-                <div class="rank-player">
-                    <p id="score">00024859</p>
-                    <p id="group">vcd</p>   
-                    <p id="name">jiwonHan</p>
-                </div>
-            </div>
-        </div>
-        </main>
-</body>
+      </div>
+    </main>
+  </body>
 </html>
