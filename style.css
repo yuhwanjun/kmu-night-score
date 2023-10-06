@@ -229,3 +229,10 @@ main {
 .player:nth-child(10) {
     animation-delay: 7s;
 }
+
+
+form.dataForm {
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+}
