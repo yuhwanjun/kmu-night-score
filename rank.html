@@ -54,24 +54,23 @@
 
       // 데이터 변경을 감지하고 onDataChange 함수를 등록
       onValue(dataRef, onDataChange, { onlyOnce: false });
-// .rank-player 요소의 참조 가져오기
-const rankPlayerElement = document.querySelector('.rank-player');
+      // .rank-player 요소의 참조 가져오기
+      const rankPlayerElement = document.querySelector(".rank-player");
 
-// justdance 배열이 비어있지 않은 경우
-  
-  // .rank-player 요소 업데이트 함수
-  function updateRankPlayer() {
-    const rankPlayerElement = document.querySelector('.rank-player');
-      const firstPlayer = justdance[0];
-      const scoreElement = rankPlayerElement.querySelector('#score');
-      const groupElement = rankPlayerElement.querySelector('#group');
-      const nameElement = rankPlayerElement.querySelector('#name');
-  
-      scoreElement.textContent = firstPlayer.score;
-      groupElement.textContent = firstPlayer.group;
-      nameElement.textContent = firstPlayer.name;
-  }
-  
+      // justdance 배열이 비어있지 않은 경우
+
+      // .rank-player 요소 업데이트 함수
+      function updateRankPlayer() {
+        const rankPlayerElement = document.querySelector(".rank-player");
+        const firstPlayer = justdance[0];
+        const scoreElement = rankPlayerElement.querySelector("#score");
+        const groupElement = rankPlayerElement.querySelector("#group");
+        const nameElement = rankPlayerElement.querySelector("#name");
+
+        scoreElement.textContent = firstPlayer.score;
+        groupElement.textContent = firstPlayer.group;
+        nameElement.textContent = firstPlayer.name;
+      }
     </script>
   </head>
   <body>
@@ -85,7 +84,7 @@ const rankPlayerElement = document.querySelector('.rank-player');
       <div id="rank-board" class="score-wrap">
         <img id="hightscore" src="./asset/SVG/ranking.svg" alt="hight score" />
         <div class="ranking-wrap">
-          <h1 id="game-name">JUST DANCE</h1>
+          <h1 id="game-name">JUST DANCE 1st</h1>
           <div class="rank-player">
             <p id="score"></p>
             <p id="group"></p>
